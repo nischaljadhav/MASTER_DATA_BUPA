@@ -1,0 +1,60 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<VBox class="fixPartVbox">
+		<HBox class="fixPartHbox sapUiMediumMarginTop sapUiSmallMarginBottom">
+			<l:Grid defaultSpan="L6 M12 S12" vSpacing="0">
+				<HBox class="fixPartSubHbox1">
+					<Label text="{i18n>martialstatus}" width="200px"/>
+					<Input id="martialStatus" value="{oCreatebpModel>/oIdentification/martialStatus}"/>
+				</HBox>
+				<HBox class="fixPartSubHbox2">
+					<Label text="{i18n>nationalitystatus}" width="200px"/>
+					<Input id="nationalityStatus" value="{oCreatebpModel>/oIdentification/nationalityStatus}"/>
+				</HBox>
+			</l:Grid>
+		</HBox>
+		<HBox class="fixPartHbox sapUiSmallMarginTopBottom">
+			<l:Grid defaultSpan="L6 M12 S12" vSpacing="0">
+				<HBox class="fixPartSubHbox1">
+					<Label text="{i18n>occupation}" width="200px"/>
+					<Input id="occupation" value="{oCreatebpModel>/oIdentification/occupation}"/>
+				</HBox>
+				<HBox class="fixPartSubHbox2">
+					<Label text="{i18n>birthplace}" width="200px"/>
+					<Input id="birthPlace" value="{oCreatebpModel>/oIdentification/birthPlace}"/>
+				</HBox>
+			</l:Grid>
+		</HBox>
+		<HBox class="fixPartHbox sapUiSmallMarginTopBottom">
+			<l:Grid defaultSpan="L6 M12 S12" vSpacing="0">
+				<HBox class="fixPartSubHbox1">
+					<Label text="{i18n>username}" width="200px"/>
+					<Input id="userName" value="{oCreatebpModel>/oIdentification/userName}"/>
+				</HBox>
+				<HBox class="fixPartSubHbox2">
+					<Label text="{i18n>employer}" width="200px"/>
+					<Input id="employer" value="{oCreatebpModel>/oIdentification/employer}"/>
+				</HBox>
+			</l:Grid>
+		</HBox>
+		<HBox class="fixPartHbox sapUiSmallMarginTopBottom">
+			<l:Grid defaultSpan="L6 M12 S12" vSpacing="0">
+				<HBox class="fixPartSubHbox1">
+					<Label text="{i18n>countryoforigin}" width="200px"/>
+					<Input id="countryOfOrigin" value="{oCreatebpModel>/oIdentification/countryOfOrigin}"/>
+				</HBox>
+				<HBox class="fixPartSubHbox2">
+					<Label text="{i18n>citizenship}" width="200px"/>
+					<Input id="citizenship" value="{oCreatebpModel>/oIdentification/citizenship}"/>
+				</HBox>
+			</l:Grid>
+		</HBox>
+		<HBox class="fixPartHbox sapUiSmallMarginTopBottom">
+			<l:Grid defaultSpan="L6 M12 S12" vSpacing="0">
+				<HBox class="fixPartSubHbox1">
+					<Label text="{i18n>personnelno}" width="200px"/>
+					<Input id="personnelNumber" value="{oCreatebpModel>/oIdentification/personnelNumber}"/>
+				</HBox>
+			</l:Grid>
+		</HBox>
+	</VBox>
+</core:FragmentDefinition>

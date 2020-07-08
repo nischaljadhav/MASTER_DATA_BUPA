@@ -1,0 +1,59 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Table id="idProductsTable" items="{oCreatebpModel>/aAddressList}" inset="false" sticky="HeaderToolbar,InfoToolbar,ColumnHeaders">
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title text="{i18n>addresslist}" level="H3"/>
+					<ToolbarSpacer></ToolbarSpacer>
+					<Button icon="sap-icon://add" type="Emphasized" press="onAddRow"></Button>
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>street1}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>street2}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>street4}"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>postalcode}"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>city}"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>country}"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>email}"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>telephone}"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>action}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells >
+					<TextArea value="{oCreatebpModel>Street}" placeholder="{i18n>enterstreet}" growing="true" />
+					<TextArea value="{oCreatebpModel>Street2}" placeholder="{i18n>enterstreet2}" growing="true" />
+					<TextArea value="{oCreatebpModel>Street4}" placeholder="{i18n>enterstreet4}" growing="true" />
+					<Input value="{oCreatebpModel>PostalCode}"/>
+					<Input value="{oCreatebpModel>City}"/>
+					<Input value="{oCreatebpModel>Country}"/>
+					<Input value="{oCreatebpModel>Email}"/>
+					<Input value="{oCreatebpModel>TeleDesktop}"/>
+					<HBox alignItems="Center">
+						<Button icon="sap-icon://delete" press="onDeleteRow" type="Reject"/>
+					</HBox>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

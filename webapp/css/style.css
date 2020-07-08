@@ -1,0 +1,54 @@
+/* Enter your custom styles here */
+
+.fixPartHeading {
+    font-size: 1.1rem;
+    font-style: Bold;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.fixPartVbox {
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+}
+
+.fixPartHbox {
+    width: 100%;
+    display: block;
+    padding-left: auto;
+    padding-right: auto;
+}
+
+.fixPartSubHbox1 {
+    display: flex;
+    align-items: center !important;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+.fixPartSubHbox2 {
+    display: flex;
+    align-items: center !important;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+.fixPartSubVbox {
+   
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.companyLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sapMITBFilter { font-weight: bold;}

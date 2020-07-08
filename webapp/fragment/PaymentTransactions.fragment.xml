@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Table id="idPaymentTransactionsTable" items="{oCreatebpModel>/aPaymentTransactions}" inset="false" sticky="HeaderToolbar,InfoToolbar,ColumnHeaders">
+		<headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title text="{i18n>paymenttransactions}" level="H3"/>
+					<ToolbarSpacer></ToolbarSpacer>
+					<Button icon="sap-icon://add" type="Emphasized" press="onAddRowTransactionTable"></Button>
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>id}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>city}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>bankkey}"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>bankaccount}"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>controlkey}"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Begin">
+				<Text text="{i18n>iban}"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Begin">
+				<Label text="{i18n>action}" design="Bold"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells >
+					<Input value="{oCreatebpModel>ID}"/>
+					<Input value="{oCreatebpModel>City}"/>
+					<Input value="{oCreatebpModel>BankKey}"/>
+					<Input value="{oCreatebpModel>BankAccount}"/>
+					<Input value="{oCreatebpModel>ControlKey}"/>
+					<TextArea value="{oCreatebpModel>IBAN}" placeholder="{i18n>enteriban}" growing="true"/>
+					<HBox alignItems="Center">
+						<Button icon="sap-icon://delete" press="onDeleteRowTransactionTable" type="Reject"/>
+					</HBox>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

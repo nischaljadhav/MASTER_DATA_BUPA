@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Toolbar>
+		<Button text="{i18n>reset}" type="Reject" class="sapUiSmallMarginBeginEnd" press="onReset"/>
+		<ToolbarSpacer/>
+		<Button text="{i18n>createbppartner}" type="Emphasized" class="sapUiSmallMarginBeginEnd" press="onSubmit"/>
+	</Toolbar>
+</core:FragmentDefinition>

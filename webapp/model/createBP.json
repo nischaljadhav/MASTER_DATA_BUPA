@@ -1,0 +1,35 @@
+{
+	"oBasicData": {
+		"firstName": "",
+		"lastName": "",
+		"searchTerm1": "",
+		"searchTerm2": "",
+		"langaugeKey": "",
+		"bpRole": ""
+	},
+
+	"aAddressList": [],
+
+	"oCommunicationDetails": {
+		"telephoneNumber": "",
+		"mobileNumber": "",
+		"fax": "",
+		"email": "",
+		"stdCommMethod": "",
+		"extAddrNumber": "",
+		"comments": ""
+	},
+	"oIdentification": {
+		"maritalStatus": "",
+		"nationalityStatus": "",
+		"occupation": "",
+		"birthPlace": "",
+		"userName": "",
+		"employer": "",
+		"countryOfOrigin": "",
+		"citizenship": "",
+		"presonnelNumber": ""
+	},
+
+	"aPaymentTransactions": []
+}
