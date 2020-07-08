@@ -5,7 +5,8 @@
 			<VBox>
 				<HBox class="fixPartSubHbox1">
 					<Label text="{i18n>firstname}" required="true" width="200px"/>
-					<Input id="firstName" value="{oCreatebpModel>/oBasicData/firstName}" valueStateText="First Name must not be empty. Maximum 15 characters."/>
+					<Input id="firstName" value="{oCreatebpModel>/oBasicData/firstName}" change="onFirstNameChange"
+					valueStateText="First Name must not be empty. Maximum 15 characters."/>
 				</HBox>
 				<HBox class="fixPartSubHbox2">
 					<Label text="{i18n>lastname}" required="true" width="200px"/>
