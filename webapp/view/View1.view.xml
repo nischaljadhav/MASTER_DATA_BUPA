@@ -7,9 +7,9 @@
 					<core:Fragment fragmentName="com.incture.ZINKTHON_SAMPLE2.fragment.Header" type="XML"></core:Fragment>
 				</customHeader>
 				<content>
-					<layout:FixFlex fixFirst="true" vertical="true" fixContentSize="175px" minFlexSize="200">
+					<layout:FixFlex fixFirst="true" vertical="true" fixContentSize="140px" minFlexSize="200">
 						<layout:fixContent>
-							<ScrollContainer height="175px" width="100%" vertical="true" horizontal="false" focusable="true">
+							<ScrollContainer height="140px" width="100%" vertical="true" horizontal="false" focusable="true">
 							<core:Fragment fragmentName="com.incture.ZINKTHON_SAMPLE2.fragment.BasicData" type="XML"></core:Fragment>
 							</ScrollContainer>	
 						</layout:fixContent>

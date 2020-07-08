@@ -1,44 +1,42 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
-    <Text text="{i18n>basicdata}" class="fixPartHeading"/>
-    <VBox class="fixPartVbox">
-        <HBox class="fixPartHbox">
-            <l:Grid defaultSpan="L6 M12 S12" vSpacing="0">
-                <HBox class="fixPartSubHbox1">
-                    <Label text="{i18n>firstname}" required="true" width="200px"/>
-                    <Input id="firstName" value="{oCreatebpModel>/oBasicData/firstName}"/>
-                </HBox>
-                <HBox class="fixPartSubHbox2">
-                    <Label text="{i18n>lastname}" required="true" width="200px"/>
-                    <Input id="lastName" value="{oCreatebpModel>/oBasicData/lastName}" valueStateText="Last Name must not be empty. Maximum 15 characters."/>
-                </HBox>
-            </l:Grid>
-        </HBox>
-        <HBox class="fixPartHbox ">
-            <l:Grid defaultSpan="L6 M12 S12" vSpacing="0">
-                <HBox class="fixPartSubHbox1">
-                    <Label text="{i18n>searchterm1}" required="true" width="200px"/>
-                    <Input id="searchTerm1" value="{oCreatebpModel>/oBasicData/searchTerm1}" valueStateText="Search Term must not be empty. Maximum 15 characters."/>
-                </HBox>
-                <HBox class="fixPartSubHbox2">
-                    <Label text="{i18n>searchterm2}" required="true" width="200px"/>
-                    <Input id="searchTerm2" value="{oCreatebpModel>/oBasicData/searchTerm2}" valueStateText="Search Term must not be empty. Maximum 15 characters."/>
-                </HBox>
-            </l:Grid>
-        </HBox>
-        <HBox class="fixPartHbox ">
-            <l:Grid defaultSpan="L6 M12 S12" vSpacing="0">
-                <HBox class="fixPartSubHbox1">
-                    <Label text="{i18n>languagekey}" required="true" width="200px"/>
-                    <Input id="languageKey" value="{oCreatebpModel>/oBasicData/languageKey}" valueStateText="Language key must not be empty"/>
-                </HBox>
-                <HBox class="fixPartSubHbox2">
-                    <Label text="{i18n>BProle}" required="true" width="200px"/>
-                    <ComboBox id="bpRole" selectedKey="{oCreatebpModel>/oBasicData/bpRole}" valueStateText="BP Role is mandatory">
-                        <core:Item key="Customer" text="{i18n>customer}"/>
-                        <core:Item key="Vendor" text="{i18n>vendor}"/>
-                    </ComboBox>
-                </HBox>
-            </l:Grid>
-        </HBox>
-    </VBox>
+	<Text text="{i18n>basicdata}" class="fixPartHeading"/>
+	<HBox class="fixBasicDataHbox">
+		<l:Grid defaultSpan="L4 M12 S12">
+			<VBox>
+				<HBox class="fixPartSubHbox1">
+					<Label text="{i18n>firstname}" required="true" width="200px"/>
+					<Input id="firstName" value="{oCreatebpModel>/oBasicData/firstName}" valueStateText="First Name must not be empty. Maximum 15 characters."/>
+				</HBox>
+				<HBox class="fixPartSubHbox2">
+					<Label text="{i18n>lastname}" required="true" width="200px"/>
+					<Input id="lastName" value="{oCreatebpModel>/oBasicData/lastName}" valueStateText="Last Name must not be empty. Maximum 15 characters."/>
+				</HBox>
+			</VBox>
+			<VBox>
+				<HBox class="fixPartSubHbox1">
+					<Label text="{i18n>searchterm1}" required="true" width="200px"/>
+					<Input id="searchTerm1" value="{oCreatebpModel>/oBasicData/searchTerm1}"
+						valueStateText="Search Term must not be empty. Maximum 15 characters."/>
+				</HBox>
+				<HBox class="fixPartSubHbox2">
+					<Label text="{i18n>searchterm2}" required="true" width="200px"/>
+					<Input id="searchTerm2" value="{oCreatebpModel>/oBasicData/searchTerm2}"
+						valueStateText="Search Term must not be empty. Maximum 15 characters."/>
+				</HBox>
+			</VBox>
+			<VBox>
+				<HBox class="fixPartSubHbox1">
+					<Label text="{i18n>languagekey}" required="true" width="200px"/>
+					<Input id="languageKey" value="{oCreatebpModel>/oBasicData/languageKey}" valueStateText="Language key must not be empty"/>
+				</HBox>
+				<HBox class="fixPartSubHbox2">
+					<Label text="{i18n>BProle}" required="true" width="200px"/>
+					<ComboBox id="bpRole" selectedKey="{oCreatebpModel>/oBasicData/bpRole}" valueStateText="BP Role is mandatory">
+						<core:Item key="Customer" text="{i18n>customer}"/>
+						<core:Item key="Vendor" text="{i18n>vendor}"/>
+					</ComboBox>
+				</HBox>
+			</VBox>
+		</l:Grid>
+	</HBox>
 </core:FragmentDefinition>
