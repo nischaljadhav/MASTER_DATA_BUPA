@@ -124,16 +124,6 @@ sap.ui.define([
 				}
 			});
 			return valid;
-		},
-		onfNameChange: function () {
-
-			var sInput = this.getView().byId("firstName");
-			if (sInput.getValue() == "" || sInput.getValue() == undefined) {
-				sInput.setValueState("Error");
-			} else {
-				sInput.setValueState("None");
-			}
-
 		}
 
 	});
