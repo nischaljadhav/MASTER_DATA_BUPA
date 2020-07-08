@@ -125,7 +125,7 @@ sap.ui.define([
 			});
 			return valid;
 		},
-		onFirstNameChange: function () {
+		onfNameChange: function () {
 
 			var sInput = this.getView().byId("firstName");
 			if (sInput.getValue() == "" || sInput.getValue() == undefined) {
@@ -135,5 +135,6 @@ sap.ui.define([
 			}
 
 		}
+
 	});
 });
