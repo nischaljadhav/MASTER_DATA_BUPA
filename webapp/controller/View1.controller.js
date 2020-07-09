@@ -140,6 +140,5 @@ sap.ui.define([
 			});
 			return valid;
 		}
-
 	});
 });
