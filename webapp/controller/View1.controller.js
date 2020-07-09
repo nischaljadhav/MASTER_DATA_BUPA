@@ -67,35 +67,51 @@ sap.ui.define([
 		},
 
 		onReset: function () {
-			var index = 0;
-			var oCreatebpModel = this.getView().getModel("oCreatebpModel");
-			var oBasicData = oCreatebpModel.getProperty("/oBasicData");
-			var oCommunicationDetails = oCreatebpModel.getProperty("/oCommunicationDetails");
-			var oIdentification = oCreatebpModel.getProperty("/oIdentification");
-			var aAddressList = oCreatebpModel.getProperty("/aAddressList");
-			var aPaymentTransactions = oCreatebpModel.getProperty("/aPaymentTransactions");
-			for (index in oBasicData) {
-				oBasicData[index] = "";
+				var that = this;
+				MessageBox.confirm("Are you sure you want to reset ?", {
+					icon: sap.m.MessageBox.Icon.WARNING,
+					title: "Reset",
+					actions: [sap.m.MessageBox.Action.YES, sap.m.MessageBox.Action.NO],
+					onClose: function (oAction) {
+						that.fnCallbackConfirm(oAction);
+					}
+				});
+			},
 
-			}
-			for (index in oCommunicationDetails) {
-				oCommunicationDetails[index] = "";
+			fnCallbackConfirm: function (oAction) {
+				if (oAction === "YES") {
+					var index = 0;
+					var oCreatebpModel = this.getView().getModel("oCreatebpModel");
+					var oBasicData = oCreatebpModel.getProperty("/oBasicData");
+					var oCommunicationDetails = oCreatebpModel.getProperty("/oCommunicationDetails");
+					var oIdentification = oCreatebpModel.getProperty("/oIdentification");
+					var aAddressList = oCreatebpModel.getProperty("/aAddressList");
+					var aPaymentTransactions = oCreatebpModel.getProperty("/aPaymentTransactions");
+					for (index in oBasicData) {
+						oBasicData[index] = "";
 
-			}
-			for (index in oIdentification) {
-				oIdentification[index] = "";
+					}
+					for (index in oCommunicationDetails) {
+						oCommunicationDetails[index] = "";
 
-			}
-			aAddressList = [];
-			aPaymentTransactions = [];
-			oCreatebpModel.setProperty("/oBasicData", oBasicData);
-			oCreatebpModel.setProperty("/oCommunicationDetails", oCommunicationDetails);
-			oCreatebpModel.setProperty("/oIdentification", oIdentification);
-			oCreatebpModel.setProperty("/aAddressList", aAddressList);
-			oCreatebpModel.setProperty("/aPaymentTransactions", aPaymentTransactions);
-			console.log(oCreatebpModel);
+					}
+					for (index in oIdentification) {
+						oIdentification[index] = "";
 
-		},
+					}
+					aAddressList = [];
+					aPaymentTransactions = [];
+					oCreatebpModel.setProperty("/oBasicData", oBasicData);
+					oCreatebpModel.setProperty("/oCommunicationDetails", oCommunicationDetails);
+					oCreatebpModel.setProperty("/oIdentification", oIdentification);
+					oCreatebpModel.setProperty("/aAddressList", aAddressList);
+					oCreatebpModel.setProperty("/aPaymentTransactions", aPaymentTransactions);
+					console.log(oCreatebpModel);
+					
+				} else {
+					return false;
+				}
+			},
 
 		onSubmit: function (oEvent) {
 			var requiredInputs = this.returnIdListOfRequiredFields();
