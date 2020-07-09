@@ -5,11 +5,13 @@
 			<VBox>
 				<HBox class="fixPartSubHbox1">
 					<Label text="{i18n>firstname}" required="true" width="200px"/>
-					<Input id="firstName" value="{oCreatebpModel>/oBasicData/firstName}" valueStateText="First Name must not be empty. Maximum 15 characters."/>
+					<Input id="firstName" value="{oCreatebpModel>/oBasicData/firstName}" change="onFirstNameChange"
+						valueStateText="Must contain min 2 to max 20 characters. Numbers and Special characters are not supported."/>
 				</HBox>
 				<HBox class="fixPartSubHbox2">
 					<Label text="{i18n>lastname}" required="true" width="200px"/>
-					<Input id="lastName" value="{oCreatebpModel>/oBasicData/lastName}" valueStateText="Last Name must not be empty. Maximum 15 characters."/>
+					<Input id="lastName" value="{oCreatebpModel>/oBasicData/lastName}" change="onLastNameChange"
+						valueStateText="Must contain min 2 to max 20 characters. Numbers and Special characters are not supported"/>
 				</HBox>
 			</VBox>
 			<VBox>

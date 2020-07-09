@@ -6,12 +6,37 @@ sap.ui.define([
 	"sap/m/MessageBox"
 ], function (Controller, JSONModel, MessageToast, Fragment, MessageBox) {
 	"use strict";
+	var validationFlag = true;
 
 	return Controller.extend("com.incture.ZINKTHON_SAMPLE2.controller.View1", {
 		onInit: function () {
 			var oCreatebpModel = new JSONModel("model/createBP.json");
 			this.getView().setModel(oCreatebpModel, "oCreatebpModel");
-			console.log(oCreatebpModel);
+		},
+
+		onFirstNameChange: function () {
+			var regex = /^[a-zA-Z ]{2,20}$/;
+			var _self = this;
+			var sInput = _self.getView().byId("firstName");
+			if (sInput.getValue().match(regex)) {
+				sInput.setValueState("None");
+				this.validationFlag = true;
+			} else {
+				sInput.setValueState("Error");
+				this.validationFlag = false;
+			}
+		},
+		onLastNameChange: function () {
+			var regex = /^[a-zA-Z ]{2,20}$/;
+			var _self = this;
+			var sInput = _self.getView().byId("lastName");
+			if (sInput.getValue().match(regex)) {
+				sInput.setValueState("None");
+				this.validationFlag = true;
+			} else {
+				sInput.setValueState("Error");
+				this.validationFlag = false;
+			}
 		},
 
 		onAddRow: function () {
@@ -115,11 +140,11 @@ sap.ui.define([
 		onSubmit: function (oEvent) {
 			var requiredInputs = this.returnIdListOfRequiredFields();
 			var passedValidation = this.validateForm(requiredInputs);
-			if (passedValidation === false) {
+			if (passedValidation === true && this.validationFlag === true) {
 				//show an error message, rest of code will not execute.
-				MessageToast.show("Validation Failed");
-			} else {
 				MessageToast.show("Validation Successful");
+			} else {
+				MessageToast.show("Validation Failed");
 			}
 		},
 		returnIdListOfRequiredFields: function () {
@@ -140,5 +165,6 @@ sap.ui.define([
 			});
 			return valid;
 		}
+
 	});
 });
