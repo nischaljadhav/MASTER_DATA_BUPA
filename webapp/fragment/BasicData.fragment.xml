@@ -17,23 +17,24 @@
 			<VBox>
 				<HBox class="fixPartSubHbox1">
 					<Label text="{i18n>searchterm1}" required="true" width="200px"/>
-					<Input id="searchTerm1" value="{oCreatebpModel>/oBasicData/searchTerm1}"
-						valueStateText="Search Term must not be empty. Maximum 15 characters."/>
+					<Input id="searchTerm1" value="{oCreatebpModel>/oBasicData/searchTerm1}" valueStateText="Search Term must not be empty."
+						change="onSearchTerm1Change"/>
 				</HBox>
 				<HBox class="fixPartSubHbox2">
 					<Label text="{i18n>searchterm2}" required="true" width="200px"/>
-					<Input id="searchTerm2" value="{oCreatebpModel>/oBasicData/searchTerm2}"
-						valueStateText="Search Term must not be empty. Maximum 15 characters."/>
+					<Input id="searchTerm2" value="{oCreatebpModel>/oBasicData/searchTerm2}" valueStateText="Search Term must not be empty."
+						change="onSearchTerm2Change"/>
 				</HBox>
 			</VBox>
 			<VBox>
 				<HBox class="fixPartSubHbox1">
 					<Label text="{i18n>languagekey}" required="true" width="200px"/>
-					<Input id="languageKey" value="{oCreatebpModel>/oBasicData/languageKey}" valueStateText="Language key must not be empty"/>
+					<Input id="languageKey" value="{oCreatebpModel>/oBasicData/languageKey}" valueStateText="Language key must not be empty"
+						change="onLanguageKeyChange"/>
 				</HBox>
 				<HBox class="fixPartSubHbox2">
 					<Label text="{i18n>BProle}" required="true" width="200px"/>
-					<ComboBox id="bpRole" selectedKey="{oCreatebpModel>/oBasicData/bpRole}" valueStateText="BP Role is mandatory">
+					<ComboBox id="bpRole" selectedKey="{oCreatebpModel>/oBasicData/bpRole}" valueStateText="BP Role is mandatory" change="onBPRoleChange">
 						<core:Item key="Customer" text="{i18n>customer}"/>
 						<core:Item key="Vendor" text="{i18n>vendor}"/>
 					</ComboBox>
