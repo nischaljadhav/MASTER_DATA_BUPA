@@ -2,6 +2,9 @@
 	<Toolbar>
 		<Button text="{i18n>reset}" type="Reject" class="sapUiSmallMarginBeginEnd" press="onReset"/>
 		<ToolbarSpacer/>
+		<Button icon="sap-icon://message-error" tooltip ="Press to view Validation Error list"
+			visible="true" type="Reject" press = "onErrorCheckButtonPress"/>
+		<ToolbarSpacer/>
 		<Button text="{i18n>createbppartner}" type="Emphasized" class="sapUiSmallMarginBeginEnd" press="onSubmit"/>
 	</Toolbar>
 </core:FragmentDefinition>

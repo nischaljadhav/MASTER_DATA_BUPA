@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Validation Error List" titleAlignment="Center" closeOnNavigation="true" draggable="true" resizable="true"
+		class="sapUiSizeCompact" verticalScrolling="true">
+		<content>
+			<Table id="errorTable" items="{oValidationModel>/aErrorModels}" inset="false" sticky="HeaderToolbar,InfoToolbar,ColumnHeaders">
+				<columns>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+						<Text text="{i18n>type}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+						<Text text="{i18n>label_error_fragment}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Begin">
+						<Text text="{i18n>tab_error_fragment}"/>
+					</Column>
+					<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Begin">
+						<Text text="{i18n>description_error_fragment}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells >
+							<Text text="{oValidationModel>type}"/>
+							<Text text="{oValidationModel>Label}"/>
+							<Text text="{oValidationModel>tab}"/>
+							<Text text="{oValidationModel>Description}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<Toolbar>
+			<ToolbarSpacer/>
+			<Button text="Cancel" type="Emphasized" press="onCancel"/>
+		</Toolbar>
+	</Dialog>
+</core:FragmentDefinition>

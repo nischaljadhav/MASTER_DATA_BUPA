@@ -17,12 +17,12 @@
 			<VBox>
 				<VBox class="fixPartSubVbox">
 					<Label text="{i18n>searchterm1}" required="true" width="200px"/>
-					<Input id="searchTerm1" value="{oCreatebpModel>/oBasicData/searchTerm1}"
+					<Input id="searchTerm1" value="{oCreatebpModel>/oBasicData/searchTerm1}" change="onSearchTerm1Change"
 						valueStateText="Search Term must not be empty. Maximum 15 characters."/>
 				</VBox>
 				<VBox class="fixPartSubVbox">
 					<Label text="{i18n>searchterm2}" required="true" width="200px"/>
-					<Input id="searchTerm2" value="{oCreatebpModel>/oBasicData/searchTerm2}"
+					<Input id="searchTerm2" value="{oCreatebpModel>/oBasicData/searchTerm2}" change="onSearchTerm2Change"
 						valueStateText="Search Term must not be empty. Maximum 15 characters."/>
 				</VBox>
 			</VBox>

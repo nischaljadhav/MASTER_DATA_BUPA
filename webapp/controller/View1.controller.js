@@ -3,27 +3,76 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel",
 	"sap/m/MessageToast",
 	"sap/ui/core/Fragment",
-	"sap/m/MessageBox"
-], function (Controller, JSONModel, MessageToast, Fragment, MessageBox) {
+	"sap/m/MessageBox",
+	"../utility/formatter",
+], function (Controller, JSONModel, MessageToast, Fragment, MessageBox, formatter) {
 	"use strict";
 
 	return Controller.extend("com.incture.ZINKTHON_SAMPLE2.controller.View1", {
+		formatter: formatter,
 		onInit: function () {
 			var oCreatebpModel = new JSONModel("model/createBP.json");
 			this.getView().setModel(oCreatebpModel, "oCreatebpModel");
-		},
 
+			var oValidationModel = new JSONModel();
+			this.getView().setModel(oValidationModel, "oValidationModel");
+			oValidationModel.setProperty("/aErrorModels", []);
+		},
+		// buttonTextFormatter: function () {
+		// 	var oValidationModel = this.getView().getModel("oValidationModel");
+		// 	var arr = oValidationModel.getProperty("/aErrorModels");
+		// 	return arr.length;
+		// },
+		// buttonVisibleFormatter: function () {
+		// 	var oValidationModel = this.getView().getModel("oValidationModel");
+		// 	var arr = oValidationModel.getProperty("/aErrorModels");
+		// 	if (arr.length > 0) {
+		// 		return true;
+		// 	} else {
+		// 		return false;
+		// 	}
+		// },
 		onFirstNameChange: function () {
 			var regex = /^[a-zA-Z ]{2,20}$/;
 			var _self = this;
+			var oValidationModel = this.getView().getModel("oValidationModel");
+			var arr = oValidationModel.getProperty("/aErrorModels");
+			var iItemIndex = arr.map(function (item) {
+				return item.Label;
+			}).indexOf("First Name");
 			var sInput = _self.getView().byId("firstName");
 			if (sInput.getValue().match(regex) && sInput.getValue() !== "") {
+				if (iItemIndex != -1) {
+					arr.splice(iItemIndex, 1);
+				}
 				sInput.setValueState("None");
 				this.fNameValid = true;
 			} else {
+				var obj = {
+					type: "Error",
+					Label: "First Name",
+					tab: "Basic Data",
+					Description: _self.getView().byId("firstName").getValueStateText()
+				};
+				if (iItemIndex == -1) {
+					arr.push(obj);
+				}
 				sInput.setValueState("Error");
 				this.fNameValid = false;
 			}
+		},
+		onErrorCheckButtonPress: function () {
+			if (!this._oDialog) {
+				this._oDialog = sap.ui.xmlfragment("idErrorList", "com.incture.ZINKTHON_SAMPLE2.fragment.ErrorList", this);
+			}
+			this.getView().addDependent(this._oDialog);
+			this._oDialog.open();
+		},
+		onCancel: function () {
+			this._oDialog.close();
+			this._oDialog.destroy();
+			this._oDialog = null;
+
 		},
 		onLastNameChange: function () {
 			var regex = /^[a-zA-Z ]{2,20}$/;
@@ -159,72 +208,39 @@ sap.ui.define([
 		},
 
 		fnCallbackConfirm: function (oAction) {
-				if (oAction === "YES") {
-					var index = 0;
-					var oCreatebpModel = this.getView().getModel("oCreatebpModel");
-					var oBasicData = oCreatebpModel.getProperty("/oBasicData");
-					var oCommunicationDetails = oCreatebpModel.getProperty("/oCommunicationDetails");
-					var oIdentification = oCreatebpModel.getProperty("/oIdentification");
-					var aAddressList = oCreatebpModel.getProperty("/aAddressList");
-					var aPaymentTransactions = oCreatebpModel.getProperty("/aPaymentTransactions");
-					for (index in oBasicData) {
-						oBasicData[index] = "";
+			if (oAction === "YES") {
+				var index = 0;
+				var oCreatebpModel = this.getView().getModel("oCreatebpModel");
+				var oBasicData = oCreatebpModel.getProperty("/oBasicData");
+				var oCommunicationDetails = oCreatebpModel.getProperty("/oCommunicationDetails");
+				var oIdentification = oCreatebpModel.getProperty("/oIdentification");
+				var aAddressList = oCreatebpModel.getProperty("/aAddressList");
+				var aPaymentTransactions = oCreatebpModel.getProperty("/aPaymentTransactions");
+				for (index in oBasicData) {
+					oBasicData[index] = "";
 
-					}
-					for (index in oCommunicationDetails) {
-						oCommunicationDetails[index] = "";
-
-					}
-					for (index in oIdentification) {
-						oIdentification[index] = "";
-
-					}
-					aAddressList = [];
-					aPaymentTransactions = [];
-					oCreatebpModel.setProperty("/oBasicData", oBasicData);
-					oCreatebpModel.setProperty("/oCommunicationDetails", oCommunicationDetails);
-					oCreatebpModel.setProperty("/oIdentification", oIdentification);
-					oCreatebpModel.setProperty("/aAddressList", aAddressList);
-					oCreatebpModel.setProperty("/aPaymentTransactions", aPaymentTransactions);
-					console.log(oCreatebpModel);
-
-				} else {
-					return false;
 				}
+				for (index in oCommunicationDetails) {
+					oCommunicationDetails[index] = "";
+
+				}
+				for (index in oIdentification) {
+					oIdentification[index] = "";
+
+				}
+				aAddressList = [];
+				aPaymentTransactions = [];
+				oCreatebpModel.setProperty("/oBasicData", oBasicData);
+				oCreatebpModel.setProperty("/oCommunicationDetails", oCommunicationDetails);
+				oCreatebpModel.setProperty("/oIdentification", oIdentification);
+				oCreatebpModel.setProperty("/aAddressList", aAddressList);
+				oCreatebpModel.setProperty("/aPaymentTransactions", aPaymentTransactions);
+				console.log(oCreatebpModel);
+
+			} else {
+				return false;
 			}
-			// onSubmit: function (oEvent) {
-			// 	var requiredInputs = this.returnIdListOfRequiredFields();
-			// 	var passedValidation = this.validateForm(requiredInputs);
-			// 	if (passedValidation === true && this.fNameValid === true && this.lNameValid == true) {
-			// 		//show an error message, rest of code will not execute.
-			// 		MessageToast.show("Validation Successful");
-			// 	} else {
-			// 		MessageToast.show("Validation Failed");
-			// 	}
-			// },
-			// returnIdListOfRequiredFields: function () {
-			// 	var requiredInputs = ["firstName", "lastName", "searchTerm1", "searchTerm2", "languageKey", "bpRole"];
-			// 	return requiredInputs;
-			// },
-			// validateForm: function (requiredInputs) {
-			// 	var _self = this;
-			// 	var valid = true;
-			// 	requiredInputs.forEach(function (input) {
-			// 		var sInput = _self.getView().byId(input);
-			// 		var previousState = _self.getView().byId(input).getValueState();
-			// 		if (sInput.getValue() == "" || sInput.getValue() == undefined) {
-			// 			valid = false;
-			// 			sInput.setValueState("Error");
-			// 		} else {
-			// 			if (previousState === "None") {
-			// 				sInput.setValueState("None");
-			// 			} else {
-			// 				sInput.setValueState("Error");
-			// 			}
-			// 		}
-			// 	});
-			// 	return valid;
-			// }
+		}
 
 	});
 });
