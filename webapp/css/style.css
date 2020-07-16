@@ -8,7 +8,7 @@
     margin-top: 10px;
 }
 
-.fixPartVbox,.fixBasicDataHbox {
+.fixPartHbox,.fixBasicDataHbox {
     width: 90%;
     display: block;
     margin-left: auto;
@@ -16,36 +16,13 @@
     background-color: #fff;
 }
 
-.fixPartHbox {
-	
-    width: 100%;
-    display: block;
-    padding-left: auto;
-    padding-right: auto;
-}
-
-.fixPartSubHbox1 {
+.fixPartSubVbox{
 	
     display: block;
     align-items: center !important;
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
-}
-
-.fixPartSubHbox2 {
-		
-    display: block;
-    align-items: center !important;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-}
-
-.fixPartSubVbox {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .companyLogo {
@@ -56,11 +33,4 @@
 
 .sapMITBFilter {
     font-weight: bold;
-}
-.fixPartVbox,.fixBasicDataHbox {
-    width: 90%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #fff;
 }

@@ -31,7 +31,7 @@
 											<core:Fragment fragmentName="com.incture.ZINKTHON_SAMPLE2.fragment.Identifications" type="XML"></core:Fragment>
 										</ScrollContainer>
 									</IconTabFilter>
-									<IconTabFilter text="{i18n>Payment Transanctions}">
+									<IconTabFilter text="{i18n>paymenttransactions}">
 										<ScrollContainer horizontal="false" vertical="true" height="100%">
 											<core:Fragment fragmentName="com.incture.ZINKTHON_SAMPLE2.fragment.PaymentTransactions" type="XML"></core:Fragment>
 										</ScrollContainer>

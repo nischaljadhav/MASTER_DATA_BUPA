@@ -1,48 +1,38 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
-	<VBox class="fixPartVbox">
-		<HBox class="fixPartHbox sapUiMediumMarginTop sapUiSmallMarginBottom">
-			<l:Grid defaultSpan="L6 M12 S12" vSpacing="0">
-				<HBox class="fixPartSubHbox1">
+	<HBox class="fixPartHbox">
+		<l:Grid defaultSpan="L6 M12 S12" class="grid" position="Center" width="80%" hSpacing="2">
+			<VBox class="sapUiSmallMarginTopBottom">
+				<VBox>
 					<Label text="{i18n>telephoneno}" width="200px"/>
 					<Input id="telephoneNumber" value="{oCreatebpModel>/oCommunicationDetails/telephoneNumber}"/>
-				</HBox>
-				<HBox class="fixPartSubHbox2">
+				</VBox>
+				<VBox>
 					<Label text="{i18n>mobileno}" width="200px"/>
 					<Input id="mobileNumber" value="{oCreatebpModel>/oCommunicationDetails/mobileNumber}"/>
-				</HBox>
-			</l:Grid>
-		</HBox>
-		<HBox class="fixPartHbox sapUiMediumMarginTop sapUiSmallMarginBottom">
-			<l:Grid defaultSpan="L6 M12 S12" vSpacing="0">
-				<HBox class="fixPartSubHbox1">
-					<Label text="{i18n>fax}" width="200px"/>
-					<Input id="fax" value="{oCreatebpModel>/oCommunicationDetails/fax}"/>
-				</HBox>
-				<HBox class="fixPartSubHbox2">
+				</VBox>
+				<VBox>
 					<Label text="{i18n>email}" width="200px"/>
 					<Input id="email" value="{oCreatebpModel>/oCommunicationDetails/email}"/>
-				</HBox>
-			</l:Grid>
-		</HBox>
-		<HBox class="fixPartHbox sapUiMediumMarginTop sapUiSmallMarginBottom">
-			<l:Grid defaultSpan="L6 M12 S12" vSpacing="0">
-				<HBox class="fixPartSubHbox1">
-					<Label text="{i18n>stdcommethod}" wrapping="true" width="200px"/>
+				</VBox>
+				<VBox>
+					<Label text="{i18n>comments}" width="200px"/>
+					<TextArea height="100px" width="100%"/>
+				</VBox>
+			</VBox>
+			<VBox class="sapUiSmallMarginTopBottom">
+				<VBox>
+					<Label text="{i18n>fax}" width="200px"/>
+					<Input id="fax" value="{oCreatebpModel>/oCommunicationDetails/fax}"/>
+				</VBox>
+				<VBox>
+					<Label text="{i18n>stdcommethod}" width="300px"/>
 					<Input id="stdCommMethod" value="{oCreatebpModel>/oCommunicationDetails/stdCommMethod}"/>
-				</HBox>
-				<HBox class="fixPartSubHbox2">
+				</VBox>
+				<VBox>
 					<Label text="{i18n>extaddrno}" width="200px"/>
 					<Input id="extAddrNumber" value="{oCreatebpModel>/oCommunicationDetails/extAddrNumber}"/>
-				</HBox>
-			</l:Grid>
-		</HBox>
-		<HBox class="fixPartHbox sapUiMediumMarginTop sapUiSmallMarginBottom">
-			<l:Grid defaultSpan="L6 M12 S12" vSpacing="0">
-				<HBox class="fixPartSubHbox1">
-					<Label text="{i18n>comments}" width="200px"/>
-					<TextArea height="100px"/>
-				</HBox>
-			</l:Grid>
-		</HBox>
-	</VBox>
+				</VBox>
+			</VBox>
+		</l:Grid>
+	</HBox>
 </core:FragmentDefinition>

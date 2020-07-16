@@ -3,35 +3,35 @@
 	<HBox class="fixBasicDataHbox">
 		<l:Grid defaultSpan="L4 M12 S12" width="90%" position="Center">
 			<VBox>
-				<VBox class="fixPartSubHbox1">
+				<VBox class="fixPartSubVbox">
 					<Label text="{i18n>firstname}" required="true" width="200px"/>
 					<Input class="field" id="firstName" value="{oCreatebpModel>/oBasicData/firstName}" change="onFirstNameChange"
 						valueStateText="Must contain min 2 to max 20 characters. Numbers and Special characters are not supported."/>
 				</VBox>
-				<VBox class="fixPartSubHbox2">
+				<VBox class="fixPartSubVbox">
 					<Label text="{i18n>lastname}" required="true" width="200px"/>
 					<Input id="lastName" value="{oCreatebpModel>/oBasicData/lastName}" change="onLastNameChange"
 						valueStateText="Must contain min 2 to max 20 characters. Numbers and Special characters are not supported"/>
 				</VBox>
 			</VBox>
 			<VBox>
-				<VBox class="fixPartSubHbox1">
+				<VBox class="fixPartSubVbox">
 					<Label text="{i18n>searchterm1}" required="true" width="200px"/>
 					<Input id="searchTerm1" value="{oCreatebpModel>/oBasicData/searchTerm1}"
 						valueStateText="Search Term must not be empty. Maximum 15 characters."/>
 				</VBox>
-				<VBox class="fixPartSubHbox2">
+				<VBox class="fixPartSubVbox">
 					<Label text="{i18n>searchterm2}" required="true" width="200px"/>
 					<Input id="searchTerm2" value="{oCreatebpModel>/oBasicData/searchTerm2}"
 						valueStateText="Search Term must not be empty. Maximum 15 characters."/>
 				</VBox>
 			</VBox>
 			<VBox>
-				<VBox class="fixPartSubHbox1">
+				<VBox class="fixPartSubVbox">
 					<Label text="{i18n>languagekey}" required="true" width="200px"/>
 					<Input id="languageKey" value="{oCreatebpModel>/oBasicData/languageKey}" valueStateText="Language key must not be empty"/>
 				</VBox>
-				<VBox class="fixPartSubHbox2">
+				<VBox class="fixPartSubVbox">
 					<Label text="{i18n>BProle}" required="true" width="200px"/>
 					<ComboBox id="bpRole" selectedKey="{oCreatebpModel>/oBasicData/bpRole}" valueStateText="BP Role is mandatory">
 						<core:Item key="Customer" text="{i18n>customer}"/>
