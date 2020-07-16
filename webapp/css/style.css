@@ -1,5 +1,6 @@
 /* Enter your custom styles here */
 
+
 .fixPartHeading {
     font-size: 1.1rem;
     font-style: Bold;
@@ -16,6 +17,7 @@
 }
 
 .fixPartHbox {
+	
     width: 100%;
     display: block;
     padding-left: auto;
@@ -23,7 +25,8 @@
 }
 
 .fixPartSubHbox1 {
-    display: flex;
+	
+    display: block;
     align-items: center !important;
     margin-left: auto;
     margin-right: auto;
@@ -31,7 +34,8 @@
 }
 
 .fixPartSubHbox2 {
-    display: flex;
+		
+    display: block;
     align-items: center !important;
     margin-left: auto;
     margin-right: auto;
