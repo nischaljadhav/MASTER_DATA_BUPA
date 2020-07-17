@@ -4,7 +4,7 @@ sap.ui.define([
 	"sap/m/MessageToast",
 	"sap/ui/core/Fragment",
 	"sap/m/MessageBox",
-	"../utility/formatter",
+	"../utility/formatter"
 ], function (Controller, JSONModel, MessageToast, Fragment, MessageBox, formatter) {
 	"use strict";
 
@@ -17,6 +17,7 @@ sap.ui.define([
 			var oValidationModel = new JSONModel();
 			this.getView().setModel(oValidationModel, "oValidationModel");
 			oValidationModel.setProperty("/aErrorModels", []);
+			oValidationModel.setProperty("/length",0);
 		},
 
 		onFirstNameChange: function () {
@@ -194,6 +195,8 @@ sap.ui.define([
 				this.bpRoleValid = false;
 			}
 		},
+		
+		
 		onSubmit: function () {
 			this.onFirstNameChange();
 			this.onLastNameChange();
@@ -201,6 +204,9 @@ sap.ui.define([
 			this.onSearchTerm2Change();
 			this.onLanguageKeyChange();
 			this.onBPRoleChange();
+			var arr = this.getView().getModel("oValidationModel").getProperty("/aErrorModels").length;
+			console.log(arr);
+			this.getView().getModel("oValidationModel").setProperty("/length",arr);
 			if (this.fNameValid && this.lNameValid && this.st1Valid && this.st2Valid && this.languageKeyValid && this.bpRoleValid) {
 				MessageToast.show("Validation Successful");
 			} else {

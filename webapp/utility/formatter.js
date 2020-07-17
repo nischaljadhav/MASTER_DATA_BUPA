@@ -16,14 +16,5 @@ com.incture.ZINKTHON_SAMPLE2.utility.formatter = {
 			this.addStyleClass("textRed");
 		}
 		return sValue;
-	},
-	buttonVisible: function () {
-		var oValidationModel = this.getView().getModel("oValidationModel");
-		var arr = oValidationModel.getProperty("/aErrorModels");
-		if (arr.length > 0) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 };

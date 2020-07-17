@@ -2,8 +2,8 @@
 	<Toolbar>
 		<Button text="{i18n>reset}" type="Reject" class="sapUiSmallMarginBeginEnd" press="onReset"/>
 		<ToolbarSpacer/>
-		<Button icon="sap-icon://message-error" tooltip ="Press to view Validation Error list"
-			visible="{path:'',formatter:'com.incture.ZINKTHON_SAMPLE2.utility.formatter.buttonVisible'}" type="Reject" press = "onErrorCheckButtonPress"/>
+		<Button icon="sap-icon://message-error" tooltip ="Press to view Validation Error list" text="{oValidationModel>/length}"
+			     visible="{=${oValidationModel>/length} > 0 ? true : false}" type="Reject" press = "onErrorCheckButtonPress"/>
 		<ToolbarSpacer/>
 		<Button text="{i18n>createbppartner}" type="Emphasized" class="sapUiSmallMarginBeginEnd" press="onSubmit"/>
 	</Toolbar>
