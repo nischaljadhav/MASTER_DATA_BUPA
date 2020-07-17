@@ -31,5 +31,89 @@
 		"presonnelNumber": ""
 	},
 
-	"aPaymentTransactions": []
+	"aPaymentTransactions": [],
+
+	"aLanguageKey": [{
+		"sLanguage": "Serbian"
+	}, {
+		"sLanguage": "Chinese"
+	}, {
+		"sLanguage": "Thai"
+	}, {
+		"sLanguage": "Korean"
+	}, {
+		"sLanguage": "Romanian"
+	}, {
+		"sLanguage": "Slovenian"
+	}, {
+		"sLanguage": "Croatian"
+	}, {
+		"sLanguage": "Malaysian"
+	}, {
+		"sLanguage": "Ukrainian"
+	}, {
+		"sLanguage": "Estonian"
+	}, {
+		"sLanguage": "Arabic"
+	}, {
+		"sLanguage": "Hebrew"
+	}, {
+		"sLanguage": "Czech"
+	}, {
+		"sLanguage": "German"
+	}, {
+		"sLanguage": "English"
+	}, {
+		"sLanguage": "French"
+	}, {
+		"sLanguage": "Greek"
+	}, {
+		"sLanguage": "Hungarian"
+	}, {
+		"sLanguage": "Italian"
+	}, {
+		"sLanguage": "Japanese"
+	}, {
+		"sLanguage": "Danish"
+	}, {
+		"sLanguage": "Polish"
+	}, {
+		"sLanguage": "Chinese trad."
+	}, {
+		"sLanguage": "Dutch"
+	}, {
+		"sLanguage": "Norwegian"
+	}, {
+		"sLanguage": "Portuguese"
+	}, {
+		"sLanguage": "Slovakian"
+	}, {
+		"sLanguage": "Russian"
+	}, {
+		"sLanguage": "Spanish"
+	}, {
+		"sLanguage": "Turkish"
+	}, {
+		"sLanguage": "Finnish"
+	}, {
+		"sLanguage": "Swedish"
+	}, {
+		"sLanguage": "Bulgarian"
+	}, {
+		"sLanguage": "Lithuanian"
+	}, {
+		"sLanguage": "Latvian"
+	}, {
+		"sLanguage": "Customer reserve"
+	}, {
+		"sLanguage": "Afrikaans"
+	}, {
+		"sLanguage": "Icelandic"
+	}, {
+		"sLanguage": "Catalan"
+	}, {
+		"sLanguage": "Serbian (Latin)"
+	},{
+		"sLanguage": "Indonesian"
+	}]
 }

@@ -29,11 +29,15 @@
 			<VBox>
 				<VBox class="fixPartSubVbox">
 					<Label text="{i18n>languagekey}" required="true" width="200px"/>
-					<Input id="languageKey" value="{oCreatebpModel>/oBasicData/languageKey}" valueStateText="Language key must not be empty"/>
+					<!--<Input id="languageKey" value="{oCreatebpModel>/oBasicData/languageKey}" valueStateText="Language key must not be empty"/>-->
+					<ComboBox items="{oCreatebpModel>/aLanguageKey}" id="languageKey" selectedKey="{oCreatebpModel>/oBasicData/langaugeKey}"
+						valueStateText="Language key must not be empty" change="onLanguageKeyChange">
+						<core:Item key="{oCreatebpModel>sLanguage}" text="{oCreatebpModel>sLanguage}"/>
+					</ComboBox>
 				</VBox>
 				<VBox class="fixPartSubVbox">
 					<Label text="{i18n>BProle}" required="true" width="200px"/>
-					<ComboBox id="bpRole" selectedKey="{oCreatebpModel>/oBasicData/bpRole}" valueStateText="BP Role is mandatory">
+					<ComboBox id="bpRole" selectedKey="{oCreatebpModel>/oBasicData/bpRole}" valueStateText="BP Role is mandatory" change="onBPRoleChange">
 						<core:Item key="Customer" text="{i18n>customer}"/>
 						<core:Item key="Vendor" text="{i18n>vendor}"/>
 					</ComboBox>

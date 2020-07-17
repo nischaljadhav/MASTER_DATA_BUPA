@@ -18,20 +18,7 @@ sap.ui.define([
 			this.getView().setModel(oValidationModel, "oValidationModel");
 			oValidationModel.setProperty("/aErrorModels", []);
 		},
-		// buttonTextFormatter: function () {
-		// 	var oValidationModel = this.getView().getModel("oValidationModel");
-		// 	var arr = oValidationModel.getProperty("/aErrorModels");
-		// 	return arr.length;
-		// },
-		// buttonVisibleFormatter: function () {
-		// 	var oValidationModel = this.getView().getModel("oValidationModel");
-		// 	var arr = oValidationModel.getProperty("/aErrorModels");
-		// 	if (arr.length > 0) {
-		// 		return true;
-		// 	} else {
-		// 		return false;
-		// 	}
-		// },
+
 		onFirstNameChange: function () {
 			var regex = /^[a-zA-Z ]{2,20}$/;
 			var _self = this;
@@ -61,71 +48,148 @@ sap.ui.define([
 				this.fNameValid = false;
 			}
 		},
-		onErrorCheckButtonPress: function () {
-			if (!this._oDialog) {
-				this._oDialog = sap.ui.xmlfragment("idErrorList", "com.incture.ZINKTHON_SAMPLE2.fragment.ErrorList", this);
-			}
-			this.getView().addDependent(this._oDialog);
-			this._oDialog.open();
-		},
-		onCancel: function () {
-			this._oDialog.close();
-			this._oDialog.destroy();
-			this._oDialog = null;
-
-		},
 		onLastNameChange: function () {
 			var regex = /^[a-zA-Z ]{2,20}$/;
 			var _self = this;
+			var oValidationModel = this.getView().getModel("oValidationModel");
+			var arr = oValidationModel.getProperty("/aErrorModels");
+			var iItemIndex = arr.map(function (item) {
+				return item.Label;
+			}).indexOf("Last Name");
 			var sInput = _self.getView().byId("lastName");
 			if (sInput.getValue().match(regex) && sInput.getValue() !== "") {
+				if (iItemIndex != -1) {
+					arr.splice(iItemIndex, 1);
+				}
 				sInput.setValueState("None");
 				this.lNameValid = true;
 			} else {
+				var obj = {
+					type: "Error",
+					Label: "Last Name",
+					tab: "Basic Data",
+					Description: _self.getView().byId("lastName").getValueStateText()
+				};
+				if (iItemIndex == -1) {
+					arr.push(obj);
+				}
 				sInput.setValueState("Error");
 				this.lNameValid = false;
 			}
 		},
+
 		onSearchTerm1Change: function () {
 			var _self = this;
+			var oValidationModel = this.getView().getModel("oValidationModel");
+			var arr = oValidationModel.getProperty("/aErrorModels");
+			var iItemIndex = arr.map(function (item) {
+				return item.Label;
+			}).indexOf("Search Term 1");
 			var sInput = _self.getView().byId("searchTerm1");
 			if (sInput.getValue() !== "") {
+				if (iItemIndex != -1) {
+					arr.splice(iItemIndex, 1);
+				}
 				sInput.setValueState("None");
 				this.st1Valid = true;
 			} else {
+				var obj = {
+					type: "Error",
+					Label: "Search Term 1",
+					tab: "Basic Data",
+					Description: _self.getView().byId("searchTerm1").getValueStateText()
+				};
+				if (iItemIndex == -1) {
+					arr.push(obj);
+				}
 				sInput.setValueState("Error");
 				this.st1Valid = false;
 			}
 		},
 		onSearchTerm2Change: function () {
 			var _self = this;
+			var oValidationModel = this.getView().getModel("oValidationModel");
+			var arr = oValidationModel.getProperty("/aErrorModels");
+			var iItemIndex = arr.map(function (item) {
+				return item.Label;
+			}).indexOf("Search Term 2");
 			var sInput = _self.getView().byId("searchTerm2");
 			if (sInput.getValue() !== "") {
+				if (iItemIndex != -1) {
+					arr.splice(iItemIndex, 1);
+				}
 				sInput.setValueState("None");
 				this.st2Valid = true;
 			} else {
+				var obj = {
+					type: "Error",
+					Label: "Search Term 2",
+					tab: "Basic Data",
+					Description: _self.getView().byId("searchTerm2").getValueStateText()
+				};
+				if (iItemIndex == -1) {
+					arr.push(obj);
+				}
 				sInput.setValueState("Error");
 				this.st2Valid = false;
 			}
 		},
 		onLanguageKeyChange: function () {
 			var _self = this;
+			var oCreatebpModel = this.getView().getModel("oCreatebpModel");
+			var data = oCreatebpModel.getProperty("/oBasicData").langaugeKey;
+			var oValidationModel = this.getView().getModel("oValidationModel");
+			var arr = oValidationModel.getProperty("/aErrorModels");
+			var iItemIndex = arr.map(function (item) {
+				return item.Label;
+			}).indexOf("Language Key");
 			var sInput = _self.getView().byId("languageKey");
-			if (sInput.getValue() !== "") {
+			if (data !== "" && data !== "undefined") {
+				if (iItemIndex != -1) {
+					arr.splice(iItemIndex, 1);
+				}
 				sInput.setValueState("None");
 				this.languageKeyValid = true;
 			} else {
+				var obj = {
+					type: "Error",
+					Label: "Language Key",
+					tab: "Basic Data",
+					Description: _self.getView().byId("languageKey").getValueStateText()
+				};
+				if (iItemIndex == -1) {
+					arr.push(obj);
+				}
 				sInput.setValueState("Error");
 				this.languageKeyValid = false;
 			}
 		},
 		onBPRoleChange: function () {
 			var _self = this;
+			var oCreatebpModel = this.getView().getModel("oCreatebpModel");
+			var data = oCreatebpModel.getProperty("/oBasicData").bpRole;
+			var oValidationModel = this.getView().getModel("oValidationModel");
+			var arr = oValidationModel.getProperty("/aErrorModels");
+			var iItemIndex = arr.map(function (item) {
+				return item.Label;
+			}).indexOf("Business Partner Role");
 			var sInput = _self.getView().byId("bpRole");
-			if (sInput.getValue() == "Customer" || sInput.getValue() == "Vendor") {
+			if (data !== "" && data !== "undefined") {
+				if (iItemIndex != -1) {
+					arr.splice(iItemIndex, 1);
+				}
 				sInput.setValueState("None");
 				this.bpRoleValid = true;
 			} else {
+				var obj = {
+					type: "Error",
+					Label: "Business Partner Role",
+					tab: "Basic Data",
+					Description: _self.getView().byId("bpRole").getValueStateText()
+				};
+				if (iItemIndex == -1) {
+					arr.push(obj);
+				}
 				sInput.setValueState("Error");
 				this.bpRoleValid = false;
 			}
@@ -142,6 +206,19 @@ sap.ui.define([
 			} else {
 				MessageToast.show("Validation Failed!!");
 			}
+		},
+		onErrorCheckButtonPress: function () {
+			if (!this._oDialog) {
+				this._oDialog = sap.ui.xmlfragment("idErrorList", "com.incture.ZINKTHON_SAMPLE2.fragment.ErrorList", this);
+			}
+			this.getView().addDependent(this._oDialog);
+			this._oDialog.open();
+		},
+		onCancel: function () {
+			this._oDialog.close();
+			this._oDialog.destroy();
+			this._oDialog = null;
+
 		},
 		onAddRow: function () {
 			var aObject = {
