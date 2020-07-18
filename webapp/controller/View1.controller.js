@@ -17,7 +17,8 @@ sap.ui.define([
 			var oValidationModel = new JSONModel();
 			this.getView().setModel(oValidationModel, "oValidationModel");
 			oValidationModel.setProperty("/aErrorModels", []);
-			oValidationModel.setProperty("/length",0);
+			oValidationModel.setProperty("/length", 0);
+			oValidationModel.setProperty("/visible_value", false);
 		},
 
 		onFirstNameChange: function () {
@@ -48,6 +49,7 @@ sap.ui.define([
 				sInput.setValueState("Error");
 				this.fNameValid = false;
 			}
+			this.arrayValueUpdateToView();
 		},
 		onLastNameChange: function () {
 			var regex = /^[a-zA-Z ]{2,20}$/;
@@ -77,6 +79,7 @@ sap.ui.define([
 				sInput.setValueState("Error");
 				this.lNameValid = false;
 			}
+			this.arrayValueUpdateToView();
 		},
 
 		onSearchTerm1Change: function () {
@@ -106,6 +109,7 @@ sap.ui.define([
 				sInput.setValueState("Error");
 				this.st1Valid = false;
 			}
+			this.arrayValueUpdateToView();
 		},
 		onSearchTerm2Change: function () {
 			var _self = this;
@@ -134,6 +138,7 @@ sap.ui.define([
 				sInput.setValueState("Error");
 				this.st2Valid = false;
 			}
+			this.arrayValueUpdateToView();
 		},
 		onLanguageKeyChange: function () {
 			var _self = this;
@@ -164,6 +169,7 @@ sap.ui.define([
 				sInput.setValueState("Error");
 				this.languageKeyValid = false;
 			}
+			this.arrayValueUpdateToView();
 		},
 		onBPRoleChange: function () {
 			var _self = this;
@@ -194,9 +200,9 @@ sap.ui.define([
 				sInput.setValueState("Error");
 				this.bpRoleValid = false;
 			}
+			this.arrayValueUpdateToView();
 		},
-		
-		
+
 		onSubmit: function () {
 			this.onFirstNameChange();
 			this.onLastNameChange();
@@ -204,13 +210,23 @@ sap.ui.define([
 			this.onSearchTerm2Change();
 			this.onLanguageKeyChange();
 			this.onBPRoleChange();
-			var arr = this.getView().getModel("oValidationModel").getProperty("/aErrorModels").length;
-			console.log(arr);
-			this.getView().getModel("oValidationModel").setProperty("/length",arr);
+			// var arr = this.getView().getModel("oValidationModel").getProperty("/aErrorModels").length;
+			// console.log(arr);
+			// this.getView().getModel("oValidationModel").setProperty("/length", arr);
 			if (this.fNameValid && this.lNameValid && this.st1Valid && this.st2Valid && this.languageKeyValid && this.bpRoleValid) {
 				MessageToast.show("Validation Successful");
 			} else {
 				MessageToast.show("Validation Failed!!");
+			}
+		},
+		arrayValueUpdateToView: function () {
+			var oValidationModel = this.getView().getModel("oValidationModel");
+			var iArr_Length = oValidationModel.getProperty("/aErrorModels").length;
+			oValidationModel.setProperty("/length", iArr_Length);
+			if (iArr_Length == 0) {
+				oValidationModel.setProperty("/visible_value", false);
+			} else {
+				oValidationModel.setProperty("/visible_value", true);
 			}
 		},
 		onErrorCheckButtonPress: function () {
