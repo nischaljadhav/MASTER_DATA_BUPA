@@ -216,7 +216,13 @@ sap.ui.define([
 			if (this.fNameValid && this.lNameValid && this.st1Valid && this.st2Valid && this.languageKeyValid && this.bpRoleValid) {
 				MessageToast.show("Validation Successful");
 			} else {
-				MessageToast.show("Validation Failed!!");
+				MessageBox.error(
+				"Please check the error button for solution",
+				{
+					icon: MessageBox.Icon.ERROR,
+					title: "BP creation failed"
+				}
+			);
 			}
 		},
 		arrayValueUpdateToView: function () {
